@@ -1,1 +1,3 @@
 # AR
+
+mais detatlhes do projeto...
