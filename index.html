@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autoavaliação de Risco de Câncer</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/styles/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -12,11 +12,23 @@
 </head>
 <body>
 
-    <main class="container page-home" id="page-home">
+    <main class="container page-profile" id="page-profile">
+        <div class="card">
+            <h1 class="title">Bem-vindo(a)</h1>
+            <p class="subtitle">Comece sua autoavaliação de risco e cuide da sua saúde. Por favor, insira seu nome para iniciar.</p>
+            <div class="form-field">
+                <label for="name-input">Seu nome</label>
+                <input type="text" id="name-input" class="input-field" placeholder="Ex: Maria">
+            </div>
+            <button class="button button-primary" id="enter-button">Entrar</button>
+        </div>
+    </main>
+
+    <main class="container page-home hidden" id="page-home">
         <div class="card">
             <h1 class="title">Autoavaliação de Risco</h1>
             <p class="subtitle">Este site ajuda você a estimar seu risco relativo de câncer com base em fatores conhecidos (idade, hábitos, histórico familiar). Não substitui consulta médica.</p>
-            <button class="button" id="start-button">Começar avaliação</button>
+            <button class="button button-primary" id="start-button">Começar avaliação</button>
         </div>
     </main>
 
@@ -42,8 +54,9 @@
             </div>
 
             <div class="button-group">
-                <button class="button button-secondary" onclick="window.location.reload()">Refazer avaliação</button>
-                <button class="button" id="view-tips-button">Ver dicas para reduzir risco</button>
+                <button class="button button-secondary" id="restart-button">Refazer avaliação</button>
+                <button class="button button-primary" id="view-tips-button">Ver dicas para reduzir risco</button>
+                <button class="button button-secondary" id="view-history-button">Ver histórico</button>
             </div>
 
             <div class="share-buttons">
@@ -60,16 +73,22 @@
     <main class="container page-tips hidden" id="page-tips">
         <div class="card">
             <h1 class="title">Dicas para Reduzir o Risco</h1>
-            <ul class="tips-list">
-                <li><i data-lucide="carrot"></i> Mantenha uma alimentação saudável.</li>
-                <li><i data-lucide="dumbbell"></i> Pratique exercícios físicos regularmente.</li>
-                <li><i data-lucide="ban"></i> Evite tabagismo e consumo excessivo de álcool.</li>
-                <li><i data-lucide="sun"></i> Use protetor solar e evite exposição excessiva ao sol.</li>
-                <li><i data-lucide="syringe"></i> Realize exames preventivos regularmente.</li>
-            </ul>
-            <div class="button-group">
+            <div class="tips-section" id="tips-content">
+                </div>
+            <div class="button-group mt-8">
                 <button class="button button-secondary" id="back-from-tips-button">Voltar</button>
-                <button class="button" onclick="window.location.reload()">Reiniciar</button>
+            </div>
+        </div>
+    </main>
+
+    <main class="container page-history hidden" id="page-history">
+        <div class="card">
+            <h1 class="title">Seu Histórico</h1>
+            <p class="subtitle">Veja a sua evolução e os resultados de avaliações passadas.</p>
+            <div class="history-section" id="history-content">
+            </div>
+            <div class="button-group mt-8">
+                <button class="button button-secondary" id="back-from-history-button">Voltar</button>
             </div>
         </div>
     </main>
@@ -78,6 +97,6 @@
         <i data-lucide="moon" id="dark-mode-icon"></i>
     </button>
 
-    <script src="script.js"></script>
+    <script src="/scripts/script.js" defer></script>
 </body>
 </html>
