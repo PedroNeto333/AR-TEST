@@ -326,47 +326,37 @@ body.dark-mode .option-button.selected {
 }
 
 /* Media Queries para responsividade */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
     body {
-        padding: 1rem;
+        /* Remove a altura mínima do body para que ele se ajuste ao conteúdo */
+        min-height: auto;
+    }
+
+    .container {
+        /* Centraliza o container na tela */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        max-width: 100%; /* Garante que o container ocupe toda a largura */
+        padding: 0 1rem;
     }
 
     .card {
-        padding: 1.5rem 1rem;
-        margin-top: 20px;
+        /* Ajusta o padding e remove a margem superior fixa para centralizar */
+        padding: 2rem 1.5rem;
+        margin-top: 0;
+        margin-bottom: 0;
+        width: 100%;
+        box-shadow: none; /* Remove a sombra para uma aparência mais limpa em dispositivos móveis */
     }
 
+    /* Outros ajustes menores para a tela de idade */
     .title {
-        font-size: 1.75rem;
-        margin-bottom: 0.75rem;
+        font-size: 1.5rem;
     }
 
-    .subtitle {
+    .form-field input {
         font-size: 1rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .button {
-        font-size: 1rem;
-        padding: 0.75rem 1rem;
-    }
-
-    .button-group,
-    .button-group-nav {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .result-text {
-        font-size: 2rem;
-    }
-
-    .result-description {
-        font-size: 1rem;
-    }
-
-    .share-buttons {
-        flex-direction: column;
-        gap: 0.5rem;
     }
 }
