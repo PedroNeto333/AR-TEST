@@ -1,4 +1,4 @@
-/*CSS da TelaInicial*/
+/* Variáveis de cores */
 :root {
     --bg-color: #f9fafb;
     --card-bg: #fff;
@@ -15,64 +15,23 @@
 body.dark-mode {
     --bg-color: #1a1a1a;
     --card-bg: #2d2d2d;
-    --text-color: #e0e0e0; /* Corrigido: texto geral mais claro no dark mode */
+    --text-color: #e0e0e0;
     --text-secondary: #a0a0a0;
     --primary-color: #60a5fa;
     --primary-hover: #3b82f6;
     --border-color: #444;
-    /* Adicionado: Cores específicas para botões de opção no dark mode */
     --option-button-bg-dark: #3a3a3a;
     --option-button-text-dark: #e0e0e0;
     --option-button-hover-dark: #4a4a4a;
     --option-button-border-dark: #555;
 }
 
-/* Estilo geral para botões de opção */
-.option-button {
-    display: block;
-    width: 100%;
-    padding: 1rem;
-    margin-bottom: 0.5rem;
-    border: 1px solid var(--border-color); /* Usa a variável border-color */
-    border-radius: 0.75rem;
-    background-color: var(--card-bg); /* Usa a variável card-bg */
-    font-size: 1rem;
-    color: var(--text-color); /* Usa a variável text-color para o texto */
-    text-align: left;
-    cursor: pointer;
-    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-}
-
-.option-button:hover, .option-button.selected {
-    background-color: var(--border-color); /* Usa a variável border-color */
-    border-color: var(--primary-color);
-}
-
-/* Estilo para botões de opção no dark mode */
-body.dark-mode .option-button {
-    background-color: var(--option-button-bg-dark); /* Fundo escuro */
-    color: var(--option-button-text-dark); /* Texto claro */
-    border-color: var(--option-button-border-dark); /* Borda mais clara */
-}
-
-body.dark-mode .option-button:hover,
-body.dark-mode .option-button.selected {
-    background-color: var(--option-button-hover-dark); /* Fundo ao passar o mouse/selecionado no dark mode */
-    border-color: var(--primary-color); /* Mantém a cor primária para destaque */
-}
-
+/* Estilos de corpo e utilitários */
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.hidden {
-    display: none !important;
-}
-
-.container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,17 +39,27 @@ body {
     padding: 2rem;
 }
 
-.card {
-    background-color: var(--card-bg);
-    padding: 3rem;
-    border-radius: 1.5rem;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    max-width: 32rem;
-    width: 100%;
-    text-align: center;
-    margin-top: 100px;
+.hidden {
+    display: none !important;
 }
 
+/* Estrutura principal */
+.container {
+    width: 100%;
+    max-width: 480px;
+    padding: 1rem;
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Títulos e textos */
 .title {
     font-size: 2.25rem;
     font-weight: 600;
@@ -104,6 +73,7 @@ body {
     margin-bottom: 2rem;
 }
 
+/* Botões */
 .button {
     background-color: var(--primary-color);
     color: var(--card-bg);
@@ -128,16 +98,22 @@ body {
 }
 
 .button-secondary:hover {
-    background-color: #8d9094;
+    background-color: var(--secondary-hover);
 }
 
-.button-group {
+.button-group, .button-group-nav {
     display: flex;
     gap: 1rem;
-    margin-top: 2rem;
+    justify-content: center;
+    width: 100%;
 }
 
-/* Formulário */
+.button-group .button,
+.button-group-nav .button {
+    flex: 1;
+}
+
+/* Campos de Formulário e Opções */
 .progress-bar {
     width: 100%;
     height: 0.25rem;
@@ -186,6 +162,7 @@ body {
     border-color: var(--primary-color);
 }
 
+/* Estilo para botões de opção */
 .option-button {
     display: block;
     width: 100%;
@@ -195,9 +172,10 @@ body {
     border-radius: 0.75rem;
     background-color: var(--card-bg);
     font-size: 1rem;
+    color: var(--text-color);
     text-align: left;
     cursor: pointer;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 .option-button:hover, .option-button.selected {
@@ -205,7 +183,20 @@ body {
     border-color: var(--primary-color);
 }
 
-/* Resultado */
+/* Estilo para botões de opção no dark mode */
+body.dark-mode .option-button {
+    background-color: var(--option-button-bg-dark);
+    color: var(--option-button-text-dark);
+    border-color: var(--option-button-border-dark);
+}
+
+body.dark-mode .option-button:hover,
+body.dark-mode .option-button.selected {
+    background-color: var(--option-button-hover-dark);
+    border-color: var(--primary-color);
+}
+
+/* Seção de resultado */
 .result-display {
     display: flex;
     flex-direction: column;
@@ -236,25 +227,24 @@ body {
     margin-bottom: 0.5rem;
 }
 
-.low-risk .result-icon-fill { background-color: var(--low-risk-color); height: 30%; }
-.low-risk .result-text { color: var(--low-risk-color); }
-
-.moderate-risk .result-icon-fill { background-color: var(--moderate-risk-color); height: 60%; }
-.moderate-risk .result-text { color: var(--moderate-risk-color); }
-
-.high-risk .result-icon-fill { background-color: var(--high-risk-color); height: 90%; }
-.high-risk .result-text { color: var(--high-risk-color); }
-
 .result-description {
     color: var(--text-secondary);
     font-size: 1.125rem;
 }
+
+.low-risk .result-icon-fill { background-color: var(--low-risk-color); height: 30%; }
+.low-risk .result-text { color: var(--low-risk-color); }
+.moderate-risk .result-icon-fill { background-color: var(--moderate-risk-color); height: 60%; }
+.moderate-risk .result-text { color: var(--moderate-risk-color); }
+.high-risk .result-icon-fill { background-color: var(--high-risk-color); height: 90%; }
+.high-risk .result-text { color: var(--high-risk-color); }
 
 /* Dicas */
 .tips-list {
     list-style: none;
     text-align: left;
     margin-bottom: 2rem;
+    padding: 0;
 }
 
 .tips-list li {
@@ -271,34 +261,7 @@ body {
     color: var(--primary-color);
 }
 
-/* Dark Mode Toggle */
-.dark-mode-toggle {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    width: 3.5rem;
-    height: 3.5rem;
-    background-color: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-}
-
-.dark-mode-toggle svg {
-    color: var(--text-color);
-    transition: transform 0.3s ease;
-}
-
-.dark-mode-toggle:hover svg {
-    transform: rotate(30deg);
-}
-
-/* ... (seu CSS existente) ... */
-
+/* Botões de compartilhamento */
 .share-buttons {
     display: flex;
     justify-content: center;
@@ -336,329 +299,74 @@ body {
     color: white;
 }
 
-/* Estilo para os botões de navegação do formulário */
-.button-group-nav {
-    display: flex;
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
-/*CSS do Index*/
-:root {
-    --text-color: #262626;
-    --background-color: #F3F4F6;
-    --card-background: #FFFFFF;
-    --primary-color: #2563EB;
-    --primary-hover: #1D4ED8;
-    --secondary-color: #E5E7EB;
-    --secondary-hover: #D1D5DB;
-    --low-risk-color: #16A34A;
-    --moderate-risk-color: #F59E0B;
-    --high-risk-color: #DC2626;
-    --button-text: #FFFFFF;
-}
-
-body.dark-mode {
-    --text-color: #E5E7EB;
-    --background-color: #111827;
-    --card-background: #1F2937;
-    --primary-color: #60A5FA;
-    --primary-hover: #3B82F6;
-    --secondary-color: #4B5563;
-    --secondary-hover: #6B7280;
-    --button-text: #1F2937;
-}
-
-body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
-    padding: 2rem;
-    transition: background-color 0.3s ease;
-}
-
-.container {
-    width: 100%;
-    max-width: 480px;
-}
-
-.card {
-    background-color: var(--card-background);
-    padding: 2rem;
-    border-radius: 1.5rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    text-align: center;
-}
-
-.title {
-    font-size: 1.875rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-}
-
-.subtitle {
-    font-size: 1rem;
-    color: #6B7280;
-    margin-bottom: 1.5rem;
-}
-
-.button {
-    width: 100%;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 9999px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-    color: var(--button-text);
-}
-
-.button-primary {
-    background-color: var(--primary-color);
-}
-
-.button-primary:hover {
-    background-color: var(--primary-hover);
-}
-
-.button-secondary {
-    background-color: var(--secondary-color);
-    color: var(--text-color);
-}
-
-.button-secondary:hover {
-    background-color: var(--secondary-hover);
-}
-
-.progress-bar {
-    width: 100%;
-    height: 0.5rem;
-    background-color: var(--secondary-color);
-    border-radius: 9999px;
-    margin-bottom: 2rem;
-    overflow: hidden;
-}
-
-.progress-bar-fill {
-    height: 100%;
-    width: 0%;
-    background-color: var(--primary-color);
-    transition: width 0.3s ease;
-}
-
-.question-text {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-}
-
-.option-button {
-    width: 100%;
-    padding: 1rem;
-    border: 2px solid var(--secondary-color);
-    background-color: transparent;
-    border-radius: 1rem;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--text-color);
-    margin-bottom: 0.75rem;
-    transition: all 0.2s ease-in-out;
-}
-
-.option-button:hover,
-.option-button.selected {
-    background-color: var(--primary-color);
-    color: var(--button-text);
-    border-color: var(--primary-color);
-}
-
-/* Novos estilos para a tela de perfil */
-.page-profile .card {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-.form-field {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-}
-
-.form-field label {
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.input-field {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    border: 2px solid var(--secondary-color);
-    border-radius: 0.75rem;
-    background-color: var(--card-background);
-    color: var(--text-color);
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-}
-
-.input-field:focus {
-    outline: none;
-    border-color: var(--primary-color);
-}
-
-.button-group,
-.button-group-nav {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    width: 100%;
-}
-
-.button-group .button,
-.button-group-nav .button {
-    flex: 1;
-}
-
-.result-display {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-
-.result-icon-container {
-    width: 8rem;
-    height: 8rem;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.result-icon-container .result-icon-fill {
-    width: 6rem;
-    height: 6rem;
-    border-radius: 50%;
-}
-
-.low-risk .result-icon-container {
-    background-color: var(--low-risk-color);
-}
-
-.low-risk .result-icon-fill {
-    background-color: rgba(22, 163, 74, 0.2);
-}
-
-.moderate-risk .result-icon-container {
-    background-color: var(--moderate-risk-color);
-}
-
-.moderate-risk .result-icon-fill {
-    background-color: rgba(245, 158, 11, 0.2);
-}
-
-.high-risk .result-icon-container {
-    background-color: var(--high-risk-color);
-}
-
-.high-risk .result-icon-fill {
-    background-color: rgba(220, 38, 38, 0.2);
-}
-
-.result-text {
-    font-size: 2.25rem;
-    font-weight: 700;
-}
-
-.result-description {
-    font-size: 1rem;
-    color: #6B7280;
-    margin-top: 0.5rem;
-}
-
-.share-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin-top: 1.5rem;
-}
-
-.share-button {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    border-radius: 9999px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.whatsapp-button {
-    background-color: #25D366;
-    color: #FFFFFF;
-}
-
-.whatsapp-button:hover {
-    background-color: #1DA851;
-}
-
-.telegram-button {
-    background-color: #0088CC;
-    color: #FFFFFF;
-}
-
-.telegram-button:hover {
-    background-color: #006AA7;
-}
-
-.tips-list {
-    list-style: none;
-    padding: 0;
-    text-align: left;
-    margin-top: 1.5rem;
-}
-
-.tips-list li {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    font-weight: 500;
-}
-
-.tips-list li i {
-    color: var(--primary-color);
-}
-
+/* Botão de alternar Dark Mode */
 .dark-mode-toggle {
-    position: absolute;
-    top: 2rem;
+    position: fixed;
+    bottom: 2rem;
     right: 2rem;
-    background-color: var(--card-background);
-    border: none;
-    border-radius: 9999px;
-    padding: 0.5rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
-.dark-mode-toggle i {
+.dark-mode-toggle svg {
     color: var(--text-color);
-    transition: color 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
-.hidden {
-    display: none;
+.dark-mode-toggle:hover svg {
+    transform: rotate(30deg);
+}
+
+/* Media Queries para responsividade */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    .card {
+        padding: 1.5rem 1rem;
+        margin-top: 20px;
+    }
+
+    .title {
+        font-size: 1.75rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .button {
+        font-size: 1rem;
+        padding: 0.75rem 1rem;
+    }
+
+    .button-group,
+    .button-group-nav {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .result-text {
+        font-size: 2rem;
+    }
+
+    .result-description {
+        font-size: 1rem;
+    }
+
+    .share-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
 }
